@@ -251,73 +251,73 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   // ===== Magnet Hover Effect =====
-  const magnetRadius = 150;
-  let mouseX = 0,
-    mouseY = 0,
-    ticking = false;
+  // const magnetRadius = 150;
+  // let mouseX = 0,
+  //   mouseY = 0,
+  //   ticking = false;
 
-  const resetMagnet = (el, text) => {
-    gsap.to(el, {
-      x: 0,
-      y: 0,
-      duration: 1.5,
-      ease: "elastic.out(1.2, 0.4)",
-    });
-    if (text) {
-      gsap.to(text, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: "power3.out",
-      });
-    }
-  };
+  // const resetMagnet = (el, text) => {
+  //   gsap.to(el, {
+  //     x: 0,
+  //     y: 0,
+  //     duration: 1.5,
+  //     ease: "elastic.out(1.2, 0.4)",
+  //   });
+  //   if (text) {
+  //     gsap.to(text, {
+  //       x: 0,
+  //       y: 0,
+  //       duration: 0.5,
+  //       ease: "power3.out",
+  //     });
+  //   }
+  // };
 
-  const isMobile = window.innerWidth <= 768; // Kiểm tra xem màn hình có phải di động không
+  // const isMobile = window.innerWidth <= 768; // Kiểm tra xem màn hình có phải di động không
 
-  if (!isMobile) {
-    // Chỉ áp dụng nếu không phải màn hình di động
-    document.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+  // if (!isMobile) {
+  //   // Chỉ áp dụng nếu không phải màn hình di động
+  //   document.addEventListener("mousemove", (e) => {
+  //     mouseX = e.clientX;
+  //     mouseY = e.clientY;
 
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          document.querySelectorAll(".card").forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const dx = mouseX - centerX;
-            const dy = mouseY - centerY;
-            const distance = Math.hypot(dx, dy);
+  //     if (!ticking) {
+  //       requestAnimationFrame(() => {
+  //         document.querySelectorAll(".card").forEach((card) => {
+  //           const rect = card.getBoundingClientRect();
+  //           const centerX = rect.left + rect.width / 2;
+  //           const centerY = rect.top + rect.height / 2;
+  //           const dx = mouseX - centerX;
+  //           const dy = mouseY - centerY;
+  //           const distance = Math.hypot(dx, dy);
 
-            const text = card.querySelector("span");
+  //           const text = card.querySelector("span");
 
-            if (distance < magnetRadius) {
-              gsap.to(card, {
-                x: dx * 0.3,
-                y: dy * 0.3,
-                duration: 0.4,
-                ease: "power2.out",
-              });
-              if (text) {
-                gsap.to(text, {
-                  x: dx * 0.15,
-                  y: dy * 0.15,
-                  duration: 0.4,
-                  ease: "power2.out",
-                });
-              }
-            } else {
-              resetMagnet(card, text);
-            }
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
+  //           if (distance < magnetRadius) {
+  //             gsap.to(card, {
+  //               x: dx * 0.3,
+  //               y: dy * 0.3,
+  //               duration: 0.4,
+  //               ease: "power2.out",
+  //             });
+  //             if (text) {
+  //               gsap.to(text, {
+  //                 x: dx * 0.15,
+  //                 y: dy * 0.15,
+  //                 duration: 0.4,
+  //                 ease: "power2.out",
+  //               });
+  //             }
+  //           } else {
+  //             resetMagnet(card, text);
+  //           }
+  //         });
+  //         ticking = false;
+  //       });
+  //       ticking = true;
+  //     }
+  //   });
+  // }
 
   // ================== 14. Typed.js ==================
   var typing = new Typed("#intro-highlight", {
